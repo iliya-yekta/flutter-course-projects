@@ -1,26 +1,39 @@
-# Roll Dice App
+# Expense Tracker
 
-A simple Flutter application built while following **Maximilian Schwarzmüller's Flutter & Dart course**.
-
-The project was created as part of my Flutter learning journey and focuses on the fundamentals of Flutter and Dart.
+A Flutter application for recording and viewing personal expenses, built while following **Maximilian Schwarzmüller's Flutter & Dart course**.
 
 ## About
 
-This app allows the user to roll a pair of dice and generates random dice results.
+The application allows users to add expenses and view their spending in both a list and a chart.
 
-The project is intentionally simple and was built to practice the basic concepts of Flutter application development.
+The project is used to practice forms, user input, theming, responsive layouts, and more advanced widget interaction.
+
+## Features
+
+* Add expenses
+* View expenses in a list
+* View expenses in a chart
+* Delete expenses
+* Select expense categories
+* Select expense dates
+* User input validation
+* Responsive and adaptive layout
 
 ## What I Learned
 
-* Flutter project structure
-* Basic Dart syntax
-* Variables and functions
-* Stateless widgets
-* Widget composition
-* `Image` and asset handling
-* Buttons and user interaction
-* Using functions to update the UI
-* Basic Flutter layout concepts
+* Forms and user input
+* `TextField` and controllers
+* Dropdown menus
+* Date pickers
+* Dialogs
+* Modal bottom sheets
+* Snackbars
+* Theming
+* Responsive layouts
+* Adaptive UI
+* Working with custom widgets
+* Managing widget state
+* Passing data between widgets
 
 ## Technologies
 
@@ -29,9 +42,16 @@ The project is intentionally simple and was built to practice the basic concepts
 
 ## My Changes
 
-This project initially follows the implementation demonstrated in the course.
+The initial version follows the implementation from the course.
 
-Personal changes and improvements will be added here as I revisit the project.
+Future personal improvements may include:
+
+* UI improvements
+* Code refactoring
+* Additional categories
+* Persistent local storage
+* Improved validation
+* Additional charts and statistics
 
 ## Status
 

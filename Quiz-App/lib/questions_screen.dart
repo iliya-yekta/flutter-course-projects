@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:beginner_2/widgets/answer_button.dart';
-import 'package:beginner_2/data/questions.dart';
+import 'package:quiz_app/widgets/answer_button.dart';
+import 'package:quiz_app/data/questions.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 

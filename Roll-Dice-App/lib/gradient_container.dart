@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:beginner_1/dice_roller.dart';
+import 'package:roll_dice_app/dice_roller.dart';
 
 // import 'package:beginner_1/styled_text.dart';
 

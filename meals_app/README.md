@@ -48,7 +48,7 @@ Personal modifications, refactoring, UI changes, and additional features will be
 
 ## Status
 
-🟡 Progress — Course Project
+🟢 Completed — Course Project
 
 ## Source
 

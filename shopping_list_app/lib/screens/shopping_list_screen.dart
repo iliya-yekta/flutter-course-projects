@@ -24,24 +24,36 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
   @override
   Widget build(BuildContext context) {
     final groceryItems = ref.watch(groceryItemsProvider);
-    final groceryItemsNotifier = ref.watch(groceryItemsProvider.notifier);
 
-    Widget activeWidget = Center(
-      child: Text('No grocery item. Add new one...'),
+    Widget activeWidget = groceryItems.when(
+      data: (items) {
+        if (items.isEmpty) {
+          return Center(child: Text('No grocery item. Add new one...'));
+        }
+        return ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) => Dismissible(
+            key: ValueKey(items[index].id),
+            onDismissed: (direction) async => await ref
+                .read(groceryItemsProvider.notifier)
+                .removeGroceryItem(items[index].id),
+            background: Container(
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            child: ShoppingItem(groceryItem: items[index]),
+          ),
+        );
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (error, stackTrace) {
+
+        return Center(
+          child: Text(
+            'Faild to featch data. Please try again later',
+          ),
+        );
+      },
     );
-
-    if (groceryItems.isNotEmpty) {
-      activeWidget = ListView.builder(
-        itemCount: groceryItems.length,
-        itemBuilder: (context, index) => Dismissible(
-          key: ValueKey(groceryItems[index].id),
-          onDismissed: (direction) =>
-              groceryItemsNotifier.removeGroceryItem(groceryItems[index].id),
-          background: Container(color: Theme.of(context).colorScheme.onPrimary),
-          child: ShoppingItem(groceryItem: groceryItems[index]),
-        ),
-      );
-    }
 
     return Scaffold(
       appBar: AppBar(

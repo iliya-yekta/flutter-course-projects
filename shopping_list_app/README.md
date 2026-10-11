@@ -12,35 +12,42 @@ Each item can contain information such as its name, quantity, and category.
 
 ## Features
 
-* Add shopping items
-* Remove shopping items
-* Display shopping items
-* Specify item quantity
-* Select item categories
-* Form validation
-* Communicate with a backend
-* Load remote data
-* Handle asynchronous operations
+- Add shopping items
+- Remove shopping items
+- Display shopping items
+- Specify item quantity
+- Select item categories
+- Form validation
+- Communicate with a backend
+- Load remote data
+- Handle asynchronous operations
 
 ## What I Learned
 
-* Forms
-* Input validation
-* `TextFormField`
-* Dropdown menus
-* HTTP requests
-* Asynchronous programming
-* `Future`
-* Loading and error states
-* Working with backend APIs
-* JSON-based data
-* Managing remote application state
+- Forms
+- Input validation
+- `TextFormField`
+- Dropdown menus
+- HTTP requests
+- Asynchronous programming
+- `Future`
+- Loading and error states
+- Working with backend APIs
+- JSON-based data
+- Managing remote application state
 
 ## Technologies
 
-* Flutter
-* Dart
-* HTTP / REST API concepts
+- Flutter
+- Dart
+- HTTP / REST API concepts
+- Riverpod
+
+## Firebase Configuration
+
+1. Create your own Firebase project in the Firebase Console.
+2. Create a Realtime Database instance.
+3. Copy your database URL and use its hostname as the databaseHost value in core/provider.
 
 ## My Changes
 
@@ -48,12 +55,12 @@ The initial version follows the course implementation.
 
 Future personal changes may include:
 
-* Improved UI
-* Better error handling
-* Offline support
-* Local caching
-* Additional item fields
-* Search and filtering
+- Improved UI
+- Better error handling
+- Offline support
+- Local caching
+- Additional item fields
+- Search and filtering
 
 ## Status
 

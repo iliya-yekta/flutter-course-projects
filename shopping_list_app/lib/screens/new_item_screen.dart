@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shopping_list_app/provider/grocery_provider.dart';
-import 'package:uuid/uuid.dart';
 
 import 'package:shopping_list_app/data/categories.dart';
 import 'package:shopping_list_app/models/category.dart';
 
-const uuid = Uuid();
 
 class NewItemScreen extends ConsumerStatefulWidget {
   const NewItemScreen({super.key});
@@ -20,14 +18,24 @@ class _NewItemScreenState extends ConsumerState<NewItemScreen> {
   String _enteredName = '';
   int _enteredQuantity = 1;
   Category _selectedCategory = categories[Categories.vegetables]!;
+  bool _isSending = true;
 
-  void _saveItem() {
+  void _saveItem() async {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isSending = false;
+      });
+
       _formKey.currentState!.save();
-      ref
+      await ref
           .read(groceryItemsProvider.notifier)
           .addGroceryItem(_enteredName, _enteredQuantity, _selectedCategory);
-      Navigator.pop(context);
+
+      if (!context.mounted) {
+        return;
+      }
+
+      Navigator.of(context).pop();
     }
   }
 
@@ -112,12 +120,23 @@ class _NewItemScreenState extends ConsumerState<NewItemScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {
-                      _formKey.currentState!.reset();
-                    },
+                    onPressed: !_isSending
+                        ? null
+                        : () {
+                            _formKey.currentState!.reset();
+                          },
                     child: Text('Reset'),
                   ),
-                  ElevatedButton(onPressed: _saveItem, child: Text('Submit')),
+                  ElevatedButton(
+                    onPressed: !_isSending ? null : _saveItem,
+                    child: !_isSending
+                        ? const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(),
+                          )
+                        : Text('Submit'),
+                  ),
                 ],
               ),
             ],
